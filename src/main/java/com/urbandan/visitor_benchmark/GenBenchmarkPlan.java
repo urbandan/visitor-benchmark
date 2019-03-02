@@ -6,6 +6,7 @@ import java.util.stream.IntStream;
 import com.urbandan.visitor_benchmark.hierarchy.genmodel.BlackholeGenVisitor;
 import com.urbandan.visitor_benchmark.hierarchy.genmodel.GenVisitable;
 import com.urbandan.visitor_benchmark.hierarchy.genmodel.InstanceOfBlackholeGenConsumer;
+import com.urbandan.visitor_benchmark.hierarchy.genmodel.InstanceOfCustomBlackholeGenConsumer;
 import com.urbandan.visitor_benchmark.hierarchy.genmodel.custom.CustGenVisitable1;
 import com.urbandan.visitor_benchmark.hierarchy.genmodel.custom.CustGenVisitable2;
 import com.urbandan.visitor_benchmark.hierarchy.genmodel.custom.CustGenVisitable3;
@@ -24,6 +25,7 @@ public class GenBenchmarkPlan {
     public static final int NUMBER_OF_VISITABLES = 1000;
     public BlackholeGenVisitor visitor;
     public InstanceOfBlackholeGenConsumer instanceOfConsumer;
+    public InstanceOfCustomBlackholeGenConsumer instanceOfCustomConsumer;
     public GenVisitable[] visitables;
     public int nextVisitable = 0;
 
@@ -52,6 +54,7 @@ public class GenBenchmarkPlan {
     public void setup(Blackhole blackhole) {
         visitor = new BlackholeGenVisitor(blackhole);
         instanceOfConsumer = new InstanceOfBlackholeGenConsumer(blackhole);
+        instanceOfCustomConsumer = new InstanceOfCustomBlackholeGenConsumer(blackhole);
 
         Random random = new Random(2589756);
 

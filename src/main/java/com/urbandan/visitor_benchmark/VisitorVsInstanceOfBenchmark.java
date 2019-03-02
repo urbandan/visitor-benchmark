@@ -62,4 +62,12 @@ public class VisitorVsInstanceOfBenchmark {
     public void genInstanceOf(GenBenchmarkPlan plan) {
         plan.instanceOfConsumer.consume(plan.nextVisitable());
     }
+
+    @Benchmark
+    @BenchmarkMode(Mode.AverageTime)
+    @OutputTimeUnit(TimeUnit.NANOSECONDS)
+    @Fork(value = 2, warmups = 2)
+    public void genCustomInstanceOf(GenBenchmarkPlan plan) {
+        plan.instanceOfCustomConsumer.consume(plan.nextVisitable());
+    }
 }
